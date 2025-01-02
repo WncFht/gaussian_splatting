@@ -283,7 +283,9 @@ def readNerfSyntheticInfo(path, white_background, depths, eval, extension=".png"
         test_cam_infos = []
 
     nerf_normalization = getNerfppNorm(train_cam_infos)
-
+    nerf_normalization["radius"] = np.float32(0.07189398)
+    # nerf_normalization = {'translate': [-0.03438350930809975, -0.9841488599777222, -0.5748456120491028], 'radius': np.float32(0.07189398)}
+    
     ply_path = os.path.join(path, "points3d.ply")
     if not os.path.exists(ply_path):
         # Since this data set has no colmap data, we start with random points
